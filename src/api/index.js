@@ -2,6 +2,12 @@ import { version } from '../../package.json';
 import { Router } from 'express';
 import facets from './facets';
 
+const user = {
+	name: 'lugue',
+	age: 31,
+	test: 'none'
+};
+
 export default ({ config, db }) => {
 	let api = Router();
 
@@ -12,6 +18,8 @@ export default ({ config, db }) => {
 	api.get('/', (req, res) => {
 		res.json({ version });
 	});
+
+	api.get('/user', (req, res) => res.json(user));
 
 	return api;
 }
